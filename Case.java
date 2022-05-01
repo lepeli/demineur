@@ -56,7 +56,7 @@ public class Case extends JComponent{
      */
     public void setBomb(){
         this.isBomb = true;
-        this.repaint();
+        this.repaint(); /* On force le composant à se redessiner*/ 
     }
 
     /**
