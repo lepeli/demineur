@@ -28,7 +28,7 @@ public class GameGrid extends JPanel{
         this.largeur = l;
         this.nbBombes = b;
 
-        GridLayout gestionnaire = new GridLayout(l, h);
+        GridLayout gestionnaire = new GridLayout(h,l);
         this.setLayout(gestionnaire);
 
         for(int i=0; i < h; i++){
