@@ -17,9 +17,9 @@ public class Game extends JFrame{
         /* 
             Valeurs de tests
         */
-        this.largeur  = 5;
-        this.hauteur = 3;
-        this.nbBombes = 2;
+        this.largeur  = 20;
+        this.hauteur = 20;
+        this.nbBombes = 30;
         /* Paramètres de la fenêtre */
         this.setVisible(true);
         this.setTitle("Démineur - Partie en cours");

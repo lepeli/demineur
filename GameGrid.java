@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.math.*;
 import java.awt.*;
 /**
  * Classe <code>GameGrid</code>
@@ -23,6 +24,7 @@ public class GameGrid extends JPanel{
      * @param b nombres de bombes
      */
     public GameGrid(int h, int l, int b){
+        /* Initialisation des variables */
         this.tab = new Case[h][l];
         this.hauteur = h;
         this.largeur = l;
@@ -31,21 +33,29 @@ public class GameGrid extends JPanel{
         GridLayout gestionnaire = new GridLayout(h,l);
         this.setLayout(gestionnaire);
 
-        for(int i=0; i < h; i++){
-            for(int j = 0; j < l; j++){
-                Case caseToAdd = new Case();
-                this.tab[i][j] = caseToAdd; 
+        for(int x=0; x < h; x++){ /* hauteur */ 
+            for(int y = 0; y < l; y++){ /* largeur */ 
+                Case caseToAdd = new Case(x,y);
+                this.tab[x][y] = caseToAdd; 
                 this.add(caseToAdd);
             }
         }
-        int nb = 0;
-        while(0 < nb){
-            for(int i=0; i < h; i++){
-                for(int j = 0; j < l; j++){
-                    Case caseToAdd = new Case();
-                    this.tab[i][j] = caseToAdd; 
-                    this.add(caseToAdd);
+        int nbToPlace = nbBombes;
+        while(0 < nbToPlace){
+
+            for(int x=0; x < h; x++){
+                for(int y = 0; y < l; y++){
+                    if(Math.random() > 0.99){
+                        if(!this.tab[x][y].isBomb){
+                            this.tab[x][y].setBomb();
+                            this.processNeighboorCase(x, y);
+                            nbToPlace--;
+                        }
+                    }
+                    if(nbToPlace == 0) break;
                 }
+                if(nbToPlace == 0) break;
+
             }
         }
 
@@ -58,6 +68,13 @@ public class GameGrid extends JPanel{
      */
     private void processNeighboorCase(int x, int y){
         /* Insérer les trucs à faire lol */
+        for (int _x = - 1; _x <= 1 ; _x++){
+            for(int _y = - 1; _y  <= 1; _y++){
+                if(x + _x >= 0 && y + _y >= 0 && x + _x < this.largeur && y + _y < this.hauteur){
+                    this.tab[x + _x ][y + _y].incrementerNbBombesAlentours();
+                }
+            }
+        }
     }
 
 }

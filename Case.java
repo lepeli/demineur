@@ -8,6 +8,8 @@ import javax.swing.*;
  * @version 1.0
  */
 public class Case extends JComponent{
+    protected int posx;
+    protected int posy;
     protected boolean isBomb = false; /* Permet de savoir si la case est une bombe ou pas */
     private boolean revealed = false;
     /**
@@ -26,11 +28,14 @@ public class Case extends JComponent{
     /**
      * Initialisation de la classe Case
      */
-    public Case(){
+    public Case(int x, int y){
         super();
+        this.posx = x;
+        this.posy = y;
         this.setPreferredSize(new Dimension(50,50));
         this.setMaximumSize(new Dimension(50, 50));
         this.setSize(50,50);
+        this.addMouseListener(new CaseListener(this));
     }
 
     /**
@@ -39,14 +44,26 @@ public class Case extends JComponent{
      */
     @Override
     protected void paintComponent(Graphics pinceau){
+        // System.out.println(this.getSize());
         Graphics secondPinceau = pinceau.create();
         secondPinceau.setColor(Color.BLUE);
-        secondPinceau.fillRect(0, 0, 50, 50);
+        secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
         if(!this.isBomb){
-            secondPinceau.setColor(Color.GREEN);
-            secondPinceau.fillRect(0, 0, 50, 50);
+            if(this.nbBombesAlentours > 0){
+                secondPinceau.setColor(Color.GREEN);
+                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+                secondPinceau.setColor(Color.WHITE);
+                secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2); 
+            } else {
+                secondPinceau.setColor(Color.GRAY);
+                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+            }
+        }
+        if(this.isBomb){
+            secondPinceau.setColor(Color.RED);
+            secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
             secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("" + this.nbBombesAlentours, 25, 25); 
+            secondPinceau.drawString("X", this.getSize().width / 2, this.getSize().width / 2);
         }
     }
 
@@ -66,6 +83,7 @@ public class Case extends JComponent{
      */
     public void incrementerNbBombesAlentours(){
         this.nbBombesAlentours += 1;
+        this.repaint();
     }
     /**
      * Méthode utilisée pour marquer la case en suspecte.
@@ -74,6 +92,7 @@ public class Case extends JComponent{
      */
     public void doSuspect(){
         this.state = 1;
+        this.repaint(); /* On force la case à se redessinner*/
     }
     /**
      * Méthode utilisée pour dire que l'on a un doute sur le contenu de la case
@@ -82,18 +101,24 @@ public class Case extends JComponent{
      */
     public void doDoubt(){
         this.state = 2;
+        this.repaint(); /* On force la case à se redessinner*/
     }
     /**
      * Utilisé par la gestion des actions sur les cases, permet de révéler la case
      * @see ActionCase (nom temporaire)
      */
-    public void reveal(){
+
+    public void rightClick(){
         this.revealed = true;
         if(this.isBomb){
             /* Implémenter la logique pour les bombes */
             this.repaint();
         } else {
-            /* Afficher la valeur de la case voire déclencher le reveal des cases alentours */
+            if(0 < nbBombesAlentours){
+                /* On affiche la valeur de la case */
+            } else {
+                /* On révèle toutes les voisines (de façon récursive) qui ne sont pas des bombes */
+            }
         }
     }
 
