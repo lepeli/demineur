@@ -1,12 +1,12 @@
 import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
- * Menu, contrôle le menu 
+ * Classe Menu, permet de gérer la partie graphique du menu
+ * @author Yvan
+ * @version 1.0
  */
-
-import java.awt.*;
-
-import javax.swing.*;
 public class Menu extends JFrame{
 
     public Menu(){

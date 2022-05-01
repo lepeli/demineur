@@ -1,7 +1,12 @@
 import java.awt.event.*;
 
+/**
+ * La clase <code>MenuListener</code> permet de récupérer les actions effectuées dans le menu.
+ * @version 1.0 
+ * @author Yvan
+ */
 public class MenuListener implements ActionListener{
-    /*
-        @TODO: Coder les intéractions dans le menu
-    */
+    /**
+     * @todo coder les actions pour les boutons du menu
+     */
 }

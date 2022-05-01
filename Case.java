@@ -9,8 +9,14 @@ import javax.swing.*;
 public class Case {
     private boolean isBomb;
     private boolean revealed = false;
-    private boolean is;
-    
+    /**
+     * state est utilisé pour savoir à quel état la case est:
+     *  - 0: non révélée ()
+     *  - 1: suspectée (*)
+     *  - 2: pas sûr d'être suspectée (?)
+     */
+    private int state = 0;
+
     /**
      * Initialisation de la classe Case (on doit pouvoir faire des choses dedans mais je n'ai pas d'idée de quoi faire dedans)
      */
