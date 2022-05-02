@@ -66,12 +66,15 @@ public class Case extends JButton{
      * @see CaseListener
      */
     public void rightClick(){
-        this.state++;
-        if(this.state == 3){
-            this.state = 0;
+        if(!this.revealed){
+            this.state++;
+            if(this.state == 3){
+                this.state = 0;
+            }
+            this.repaint();
+            this.gridController.checkWin();
         }
-        this.repaint();
-        this.gridController.checkWin();
+
     }
 
     /**
