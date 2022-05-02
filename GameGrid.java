@@ -8,6 +8,8 @@ import java.awt.*;
  */
 public class GameGrid extends JPanel{
 
+    private JFrame parent;
+
     /**
      * Paramètres de la partie
      */
@@ -27,9 +29,13 @@ public class GameGrid extends JPanel{
      * @param h hauteur de la grille
      * @param l largeur de la grille
      * @param b nombres de bombes
+     * @param pF fenêtre parent (jeu)
+     * @see Game
      */
-    public GameGrid(int h, int l, int b){
+    public GameGrid(int h, int l, int b, JFrame pF){
+        
         /* Initialisation des variables */
+        this.parent = pF;
         this.tab = new Case[h][l];
         this.hauteur = h;
         this.largeur = l;
@@ -117,7 +123,7 @@ public class GameGrid extends JPanel{
                 this.tab[x][y].reveal();
             }
         }
-        new EndScreen("Perdu !");
+        new EndScreen("Perdu !", this.parent);
     }
 
     /**
@@ -134,7 +140,7 @@ public class GameGrid extends JPanel{
             }
         }
         if(win){
-            new EndScreen("Vous avez gagné !!!");
+            new EndScreen("Vous avez gagné !!!", this.parent);
         }
     }
 

@@ -30,7 +30,7 @@ public class Game extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /* Initialisation de la grille */
-        GameGrid grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes);
+        GameGrid grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
 
         this.add(grille);
     }
