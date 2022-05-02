@@ -23,7 +23,6 @@ public class CaseListener implements MouseListener{
      * Clic détecté sur une des cases
      */
     public void mouseClicked(MouseEvent evenement){
-        System.out.println("Pos Y:" + this.c.posy + " Pos X:" + this.c.posx);
 
         if(evenement.getButton() == MouseEvent.BUTTON1){
             /* Il y a eu un clic gauche */
