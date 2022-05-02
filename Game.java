@@ -1,4 +1,5 @@
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Classe <code>Game</code>
@@ -28,6 +29,9 @@ public class Game extends JFrame{
         // this.setResizable(false);
         this.setTitle("Démineur - Partie en cours");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // GridLayout fenMgr = new GridLayout(3,1);
+        // this.setLayout(fenMgr);
 
         /* Initialisation de la grille */
         GameGrid grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
