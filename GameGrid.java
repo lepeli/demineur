@@ -1,11 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+
 /**
  * Classe <code>GameGrid</code>
  * @authour Yvan
  * @version 1.0
  */
 public class GameGrid extends JPanel{
+
+    /**
+     * Paramètres de la partie
+     */
     protected int hauteur;
     protected int largeur;
     protected int nbBombes;
@@ -18,6 +23,7 @@ public class GameGrid extends JPanel{
     
     /**
      * Initialisation de la classe <code>Grille</code>
+     * Créer la fenêtre et vient placer les bombes
      * @param h hauteur de la grille
      * @param l largeur de la grille
      * @param b nombres de bombes
@@ -61,6 +67,7 @@ public class GameGrid extends JPanel{
         }
 
     }
+
     /**
      * S'occupe de prévenir les cases voisines qu'il y a une nouvelle bombe à côté d'elles.
      * @param x coordonées x de la bombe
@@ -80,7 +87,7 @@ public class GameGrid extends JPanel{
     }
 
     /**
-     * 
+     * Afficher les autres cases vides aux alentours d'une case vide
      * @param x coordonées x de la case
      * @param y cordonnées y de la case 
      * @see Case
@@ -100,12 +107,17 @@ public class GameGrid extends JPanel{
         }
     }
 
+    /**
+     * Méthode appellée lorsqu'un bombe a été révélée par un joueur
+     * @see Case
+     */
     public void gameLost(){
         for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
             for(int y = 0; y < this.largeur; y++){ /* largeur */ 
                 this.tab[x][y].reveal();
             }
         }
-        EndScreen deathScreen = new EndScreen("Perdu !");
+        new EndScreen("Perdu !");
     }
+
 }

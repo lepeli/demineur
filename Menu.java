@@ -1,7 +1,4 @@
-import javax.swing.JPanel;
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
 
 /**
  * Classe Menu, permet de gérer la partie graphique du menu
@@ -36,4 +33,5 @@ public class Menu extends JFrame{
         /* Ajout des boutons sur la fenêtre */
         this.add(panel);
     }
+
 }

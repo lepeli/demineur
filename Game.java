@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 
 /**
  * Classe <code>Game</code>
+ * Elle permet d'appeler la grille en lui envoyant les paramètres reçus depuis l'écran d'options
  * @author Yvan
  * @version 1.0
  */
@@ -19,16 +20,19 @@ public class Game extends JFrame{
         */
         this.largeur  = 50;
         this.hauteur = 50;
-        this.nbBombes = 100;
+        this.nbBombes = 300;
+
         /* Paramètres de la fenêtre */
         this.setSize(800,800);
         this.setVisible(true);
         // this.setResizable(false);
         this.setTitle("Démineur - Partie en cours");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         /* Initialisation de la grille */
         GameGrid grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes);
 
         this.add(grille);
     }
+
 }

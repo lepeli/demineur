@@ -82,12 +82,9 @@ public class Case extends JButton{
             this.revealed = true;
             if(this.isBomb){
                 /* Implémenter la logique pour les bombes */
-                this.repaint();
                 this.gridController.gameLost();
             } else {
-                if(0 < nbBombesAlentours){
-                    /* On affiche la valeur de la case */
-                } else {
+                if(0 == nbBombesAlentours){
                     this.gridController.revealBlankNeighboor(this.posx, this.posy);
                 }
             }            
@@ -96,6 +93,9 @@ public class Case extends JButton{
 
     }
 
+    /**
+     * Révéler la case
+     */
     public void reveal(){
         this.revealed = true;
         this.repaint();
@@ -116,7 +116,7 @@ public class Case extends JButton{
                     secondPinceau.setColor(Color.GREEN);
                     secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
                     secondPinceau.setColor(Color.WHITE);
-                    secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2); 
+                    secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2);
                 } else {
                     secondPinceau.setColor(Color.GRAY);
                     secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
