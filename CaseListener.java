@@ -7,6 +7,15 @@ public class CaseListener implements MouseListener{
     }
     public void mouseClicked(MouseEvent evenement){
         System.out.println("Pos Y:" + this.c.posy + " Pos X:" + this.c.posx);
+
+        if(evenement.getButton() == MouseEvent.BUTTON1){
+            /* Il y a eu un clic droit*/
+            this.c.leftClick();
+        }
+        else if(evenement.getButton() == MouseEvent.BUTTON3){
+            this.c.rightClick();
+        }
+
     }          // un bouton cliqué
     public void mouseEntered(MouseEvent evenement){
 

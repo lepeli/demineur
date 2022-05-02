@@ -17,11 +17,13 @@ public class Game extends JFrame{
         /* 
             Valeurs de tests
         */
-        this.largeur  = 20;
-        this.hauteur = 20;
-        this.nbBombes = 30;
+        this.largeur  = 50;
+        this.hauteur = 50;
+        this.nbBombes = 100;
         /* Paramètres de la fenêtre */
+        this.setSize(800,800);
         this.setVisible(true);
+        // this.setResizable(false);
         this.setTitle("Démineur - Partie en cours");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /* Initialisation de la grille */

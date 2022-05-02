@@ -7,18 +7,20 @@ import javax.swing.*;
  * @author Yvan
  * @version 1.0
  */
-public class Case extends JComponent{
+public class Case extends JButton{
     protected int posx;
     protected int posy;
     protected boolean isBomb = false; /* Permet de savoir si la case est une bombe ou pas */
-    private boolean revealed = false;
+    protected boolean revealed = false;
+    protected GameGrid gridController;
+
     /**
      * state est utilisé pour savoir à quel état la case est:
      *  - 0: non révélée ()
      *  - 1: suspectée (*)
      *  - 2: doute (?)
      */
-    private int state = 0;
+    protected int state = 0;
     
     /**
      * Nombres de bombes aux alentours (utilisé pour les cases qui affichent le nbr de bombes alentours)
@@ -28,43 +30,16 @@ public class Case extends JComponent{
     /**
      * Initialisation de la classe Case
      */
-    public Case(int x, int y){
+    public Case(int x, int y, GameGrid g){
         super();
         this.posx = x;
         this.posy = y;
+        this.gridController = g;
+
         this.setPreferredSize(new Dimension(50,50));
         this.setMaximumSize(new Dimension(50, 50));
         this.setSize(50,50);
         this.addMouseListener(new CaseListener(this));
-    }
-
-    /**
-     * Création graphique de la case
-     * @param pinceau utilisé pour créer un autre pinceau
-     */
-    @Override
-    protected void paintComponent(Graphics pinceau){
-        // System.out.println(this.getSize());
-        Graphics secondPinceau = pinceau.create();
-        secondPinceau.setColor(Color.BLUE);
-        secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-        if(!this.isBomb){
-            if(this.nbBombesAlentours > 0){
-                secondPinceau.setColor(Color.GREEN);
-                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-                secondPinceau.setColor(Color.WHITE);
-                secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2); 
-            } else {
-                secondPinceau.setColor(Color.GRAY);
-                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-            }
-        }
-        if(this.isBomb){
-            secondPinceau.setColor(Color.RED);
-            secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-            secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("X", this.getSize().width / 2, this.getSize().width / 2);
-        }
     }
 
     /**
@@ -86,40 +61,79 @@ public class Case extends JComponent{
         this.repaint();
     }
     /**
-     * Méthode utilisée pour marquer la case en suspecte.
+     * Méthode utilisée pour changer le state de la case
      * Appellée par l'action listener des cases 
-     * @see ActionCase
+     * @see CaseListener
      */
-    public void doSuspect(){
-        this.state = 1;
-        this.repaint(); /* On force la case à se redessinner*/
+    public void rightClick(){
+        this.state++;
+        if(this.state == 3){
+            this.state = 0;
+        }
+        this.repaint();
     }
-    /**
-     * Méthode utilisée pour dire que l'on a un doute sur le contenu de la case
-     * Appellée par l'action listener des cases 
-     * @see ActionCase 
-     */
-    public void doDoubt(){
-        this.state = 2;
-        this.repaint(); /* On force la case à se redessinner*/
-    }
+
     /**
      * Utilisé par la gestion des actions sur les cases, permet de révéler la case
      * @see ActionCase (nom temporaire)
      */
-
-    public void rightClick(){
-        this.revealed = true;
-        if(this.isBomb){
-            /* Implémenter la logique pour les bombes */
-            this.repaint();
-        } else {
-            if(0 < nbBombesAlentours){
-                /* On affiche la valeur de la case */
+    public void leftClick(){
+        if(this.state == 0){
+            this.revealed = true;
+            if(this.isBomb){
+                /* Implémenter la logique pour les bombes */
+                this.repaint();
+                this.gridController.gameLost();
             } else {
-                /* On révèle toutes les voisines (de façon récursive) qui ne sont pas des bombes */
-            }
+                if(0 < nbBombesAlentours){
+                    /* On affiche la valeur de la case */
+                } else {
+                    this.gridController.revealBlankNeighboor(this.posx, this.posy);
+                }
+            }            
         }
+        this.repaint();
+
     }
 
+    public void reveal(){
+        this.revealed = true;
+        this.repaint();
+    }
+
+    /**
+     * Création graphique de la case
+     * @param pinceau utilisé pour créer un autre pinceau
+     */
+    @Override
+    protected void paintComponent(Graphics pinceau){
+        Graphics secondPinceau = pinceau.create();
+        secondPinceau.setColor(Color.BLUE);
+        secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+        if(this.revealed){
+            if(!this.isBomb){
+                if(this.nbBombesAlentours > 0){
+                    secondPinceau.setColor(Color.GREEN);
+                    secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+                    secondPinceau.setColor(Color.WHITE);
+                    secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2); 
+                } else {
+                    secondPinceau.setColor(Color.GRAY);
+                    secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+                }
+            }
+            if(this.isBomb){
+                secondPinceau.setColor(Color.RED);
+                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+                secondPinceau.setColor(Color.WHITE);
+                secondPinceau.drawString("X", this.getSize().width / 2, this.getSize().width / 2);
+            }
+        } else if(this.state == 1){
+            secondPinceau.setColor(Color.WHITE);
+            secondPinceau.drawString("F", this.getSize().width / 2, this.getSize().width / 2); 
+        } else if(this.state == 2){
+            secondPinceau.setColor(Color.WHITE);
+            secondPinceau.drawString("?", this.getSize().width / 2, this.getSize().width / 2); 
+        }
+    }
 }

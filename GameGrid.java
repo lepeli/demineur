@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.math.*;
 import java.awt.*;
 /**
  * Classe <code>GameGrid</code>
@@ -35,11 +34,13 @@ public class GameGrid extends JPanel{
 
         for(int x=0; x < h; x++){ /* hauteur */ 
             for(int y = 0; y < l; y++){ /* largeur */ 
-                Case caseToAdd = new Case(x,y);
+                Case caseToAdd = new Case(x,y, this);
                 this.tab[x][y] = caseToAdd; 
                 this.add(caseToAdd);
             }
         }
+
+        /* Placement des bombes aléatoirement */
         int nbToPlace = nbBombes;
         while(0 < nbToPlace){
 
@@ -70,6 +71,7 @@ public class GameGrid extends JPanel{
         /* Insérer les trucs à faire lol */
         for (int _x = - 1; _x <= 1 ; _x++){
             for(int _y = - 1; _y  <= 1; _y++){
+                /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
                 if(x + _x >= 0 && y + _y >= 0 && x + _x < this.largeur && y + _y < this.hauteur){
                     this.tab[x + _x ][y + _y].incrementerNbBombesAlentours();
                 }
@@ -77,4 +79,33 @@ public class GameGrid extends JPanel{
         }
     }
 
+    /**
+     * 
+     * @param x coordonées x de la case
+     * @param y cordonnées y de la case 
+     * @see Case
+     */
+    public void revealBlankNeighboor(int x, int y){
+        /* Insérer les trucs à faire lol */
+        for (int _x = - 1; _x <= 1 ; _x++){
+            for(int _y = - 1; _y  <= 1; _y++){
+                /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
+                if(x + _x >= 0 && y + _y >= 0 && x + _x < this.largeur && y + _y < this.hauteur){
+                    Case voisinne = this.tab[x + _x ][y + _y];
+                    if(!voisinne.isBomb && !voisinne.revealed){
+                        voisinne.leftClick();
+                    } 
+                }
+            }
+        }
+    }
+
+    public void gameLost(){
+        for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
+            for(int y = 0; y < this.largeur; y++){ /* largeur */ 
+                this.tab[x][y].reveal();
+            }
+        }
+        EndScreen deathScreen = new EndScreen("Perdu !");
+    }
 }
