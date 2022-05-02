@@ -86,7 +86,6 @@ public class GameGrid extends JPanel{
             for(int _y = - 1; _y  <= 1; _y++){
                 /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
                 if(x + _x >= 0 && y + _y >= 0 && x + _x < this.hauteur && y + _y < this.largeur){
-                    System.out.println("Pos X:" + (x + _x) + " Pos Y:" + (y + _y));
                     this.tab[x + _x ][y + _y].incrementerNbBombesAlentours();
                 }
             }
