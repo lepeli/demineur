@@ -12,7 +12,12 @@ public class MenuListener implements ActionListener{
     private JFrame parent;
     private Options oF;
 
-    public MenuListener(Options p, JButton c){
+    /**
+     * Initialisation de la classe MenuListener pour les options
+     * @param p la fenêtre qui fait appel au MenuListener
+     * @see Options
+     */
+    public MenuListener(Options p){
         this.oF = p;
     }
 

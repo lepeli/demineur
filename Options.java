@@ -76,7 +76,7 @@ public class Options extends JFrame {
 
         JButton confirmer = new JButton("Confirmer");
         JPanel bouton = new JPanel();
-        confirmer.addActionListener(new MenuListener(this, confirmer));
+        confirmer.addActionListener(new MenuListener(this));
         bouton.add(confirmer);
         this.add(bouton);
 
