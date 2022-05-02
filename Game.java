@@ -14,13 +14,13 @@ public class Game extends JFrame{
     /**
      * Initialisation de la classe Game
      */
-    public Game(){
+    public Game(int l, int h, int b){
         /* 
             Valeurs de tests
         */
-        this.largeur  = 50;
-        this.hauteur = 50;
-        this.nbBombes = 220;
+        this.largeur  = l;
+        this.hauteur = h;
+        this.nbBombes = b;
 
         /* Paramètres de la fenêtre */
         this.setSize(800,800);
