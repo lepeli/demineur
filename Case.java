@@ -82,7 +82,7 @@ public class Case extends JButton{
      * @see CaseListener
      */
     public void leftClick(){
-        if(this.state == 0){
+        if(this.state == 0 && !this.revealed){
             this.revealed = true;
             if(this.isBomb){
                 /* Implémenter la logique pour les bombes */
