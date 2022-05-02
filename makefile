@@ -7,7 +7,7 @@ Case.class: Case.java
 	javac Case.java
 
 Menu.class: Menu.java
-	javac Menu.java	
+	javac Menu.java
 
 Game.class: Game.java
 	javac Game.java

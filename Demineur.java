@@ -8,4 +8,5 @@ public class Demineur {
     public static void main(String[] args) {
        new Menu(); /* On appelle le menu ici */
     }
+
 }

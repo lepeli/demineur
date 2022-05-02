@@ -1,4 +1,4 @@
-import java.awt.*; 
+import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -48,12 +48,12 @@ public class Case extends JButton{
      */
     public void setBomb(){
         this.isBomb = true;
-        this.repaint(); /* On force le composant à se redessiner*/ 
+        this.repaint(); /* On force le composant à se redessiner*/
     }
 
     /**
-     * Permet à la classe Grille de gérer le compte des bombes alentours d'une case
-     * Permet aussi d'éviter de devoir faire des calculs supplémentaires lorsque l'on clique sur une case
+     * Permet à la classe Grille de gérer le compte des bombes alentours d'une case lors de la création
+     * Permet d'éviter de faire des calculs supplémentaires lorsque l'on clique sur une case
      * @see GameGrid
      */
     public void incrementerNbBombesAlentours(){
@@ -71,11 +71,12 @@ public class Case extends JButton{
             this.state = 0;
         }
         this.repaint();
+        this.gridController.checkWin();
     }
 
     /**
      * Utilisé par la gestion des actions sur les cases, permet de révéler la case
-     * @see ActionCase (nom temporaire)
+     * @see CaseListener
      */
     public void leftClick(){
         if(this.state == 0){
@@ -87,14 +88,16 @@ public class Case extends JButton{
                 if(0 == nbBombesAlentours){
                     this.gridController.revealBlankNeighboor(this.posx, this.posy);
                 }
-            }            
+            }
         }
         this.repaint();
 
     }
 
     /**
-     * Révéler la case
+     * Révéler la case.
+     * Méthode utilisée par la classe Grille
+     * @see GameGrid
      */
     public void reveal(){
         this.revealed = true;
@@ -130,10 +133,10 @@ public class Case extends JButton{
             }
         } else if(this.state == 1){
             secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("F", this.getSize().width / 2, this.getSize().width / 2); 
+            secondPinceau.drawString("F", this.getSize().width / 2, this.getSize().width / 2);
         } else if(this.state == 2){
             secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("?", this.getSize().width / 2, this.getSize().width / 2); 
+            secondPinceau.drawString("?", this.getSize().width / 2, this.getSize().width / 2);
         }
     }
 }

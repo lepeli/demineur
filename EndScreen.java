@@ -8,7 +8,7 @@ import javax.swing.*;
  * @version 1.0
  */
 public class EndScreen extends JFrame {
-    
+
     /**
      * Initialisation de la fenêtre de fin de partie
      * @param title titre donné à la fenêtre + texte écrit

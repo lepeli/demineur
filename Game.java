@@ -20,7 +20,7 @@ public class Game extends JFrame{
         */
         this.largeur  = 50;
         this.hauteur = 50;
-        this.nbBombes = 300;
+        this.nbBombes = 220;
 
         /* Paramètres de la fenêtre */
         this.setSize(800,800);

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
  * La clase <code>MenuListener</code> permet de récupérer les actions effectuées dans le menu.
  * @version 1.0 
  * @author Yvan
+ * @see Menu
  */
 public class MenuListener implements ActionListener{
     private JFrame parent;
@@ -17,7 +18,7 @@ public class MenuListener implements ActionListener{
      * @see Menu
      */
     public MenuListener(JFrame p){
-        this.parent = p;         
+        this.parent = p;
     }
     /**
      * Méthode appellée lors d'une action effectuée sur le menu. 
@@ -29,7 +30,7 @@ public class MenuListener implements ActionListener{
         String buttonName = event.getActionCommand();
         if(buttonName.equals("Nouvelle partie")){
             this.parent.dispose();
-            Game partie = new Game();
+            new Game();
         } else if(buttonName.equals("Charger une partie")){
             // On ne fait rien pour l'instant car on n'a pas implémenté la sauvegarde de la partie
         } else if(buttonName.equals("Quitter")){

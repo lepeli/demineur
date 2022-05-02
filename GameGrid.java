@@ -38,8 +38,8 @@ public class GameGrid extends JPanel{
         GridLayout gestionnaire = new GridLayout(h,l);
         this.setLayout(gestionnaire);
 
-        for(int x=0; x < h; x++){ /* hauteur */ 
-            for(int y = 0; y < l; y++){ /* largeur */ 
+        for(int x=0; x < h; x++){ /* hauteur */
+            for(int y = 0; y < l; y++){ /* largeur */
                 Case caseToAdd = new Case(x,y, this);
                 this.tab[x][y] = caseToAdd; 
                 this.add(caseToAdd);
@@ -113,11 +113,29 @@ public class GameGrid extends JPanel{
      */
     public void gameLost(){
         for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
-            for(int y = 0; y < this.largeur; y++){ /* largeur */ 
+            for(int y = 0; y < this.largeur; y++){ /* largeur */
                 this.tab[x][y].reveal();
             }
         }
         new EndScreen("Perdu !");
+    }
+
+    /**
+     * Vérifie si le joueur a gagné la partie ou pas encore
+     * Méthode appellée à chaque fois que le joueur signale une bombe
+     * @see Case
+     */
+    public void checkWin(){
+        boolean win = true;
+        for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
+            for(int y = 0; y < this.largeur; y++){ /* largeur */ 
+                if(!this.tab[x][y].isBomb && this.tab[x][y].state != 0) win = false;
+                if(this.tab[x][y].isBomb && this.tab[x][y].state != 1) win = false;
+            }
+        }
+        if(win){
+            new EndScreen("Vous avez gagné !!!");
+        }
     }
 
 }
