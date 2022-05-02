@@ -1,4 +1,4 @@
-Demineur: Demineur.class Menu.class Case.class Game.class GameGrid.class MenuListener.class CaseListener.class
+Demineur: Demineur.class Menu.class Case.class Game.class GameGrid.class MenuListener.class CaseListener.class EndScreen.class
 
 Demineur.class: Demineur.java
 	javac Demineur.java
@@ -20,6 +20,9 @@ MenuListener.class: MenuListener.java
 
 CaseListener.class: CaseListener.java
 	javac CaseListener.java
+
+EndScreen.class: EndScreen.java
+	javac EndScreen.java
 
 clean:
 	rm *.class
