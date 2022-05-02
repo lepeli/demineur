@@ -1,5 +1,4 @@
 import java.awt.event.*;
-
 import javax.swing.*;
 
 /**
@@ -30,7 +29,6 @@ public class MenuListener implements ActionListener{
     public MenuListener(JFrame p){
         this.parent = p;
     }
-
 
     /**
      * Méthode appellée lors d'une action effectuée sur le menu. 
