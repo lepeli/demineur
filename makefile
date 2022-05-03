@@ -1,6 +1,6 @@
 JC = javac -encoding UTF-8 -implicit:none
 
-Demineur: Demineur.class Menu.class Case.class Game.class EndScreen.class Options.class
+Demineur: Demineur.class Menu.class Case.class Game.class EndScreen.class Options.class Save.class
 
 Demineur.class: Demineur.java
 	${JC} Demineur.java

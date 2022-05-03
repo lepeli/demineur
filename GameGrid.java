@@ -44,20 +44,27 @@ public class GameGrid extends JPanel{
         GridLayout gestionnaire = new GridLayout(h,l);
         this.setLayout(gestionnaire);
 
-        for(int x=0; x < h; x++){ /* hauteur */
-            for(int y = 0; y < l; y++){ /* largeur */
+        for(int x=0; x < this.hauteur; x++){ /* hauteur */
+            for(int y = 0; y < this.largeur; y++){ /* largeur */
                 Case caseToAdd = new Case(x,y, this);
                 this.tab[x][y] = caseToAdd; 
                 this.add(caseToAdd);
             }
         }
 
+    }
+
+    /**
+     * Générer aléatoirement la grille 
+     */
+    public void generateGrid(){
+
         /* Placement des bombes aléatoirement */
         int nbToPlace = nbBombes;
         while(0 < nbToPlace){
 
-            for(int x=0; x < h; x++){
-                for(int y = 0; y < l; y++){
+            for(int x=0; x < this.hauteur; x++){
+                for(int y = 0; y < this.largeur; y++){
                     if(Math.random() > 0.99){
                         if(!this.tab[x][y].isBomb){
                             this.tab[x][y].setBomb();
@@ -71,10 +78,9 @@ public class GameGrid extends JPanel{
 
             }
         }
-
     }
 
-    /**
+    /*
      * S'occupe de prévenir les cases voisines qu'il y a une nouvelle bombe à côté d'elles.
      * @param x coordonées x de la bombe
      * @param y cordonnées y de la bombe 
@@ -104,10 +110,9 @@ public class GameGrid extends JPanel{
             for(int _y = - 1; _y  <= 1; _y++){
                 /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
                 if(x + _x >= 0 && y + _y >= 0 && x + _x < this.hauteur && y + _y < this.largeur){
-                    Case voisinne = this.tab[x + _x ][y + _y];
-                    if(!voisinne.isBomb && !voisinne.revealed){
-                        voisinne.leftClick();
-                    } 
+                    if(!this.tab[x + _x ][y + _y].isBomb && !this.tab[x + _x ][y + _y].revealed){
+                        this.tab[x + _x ][y + _y].leftClick();
+                    }
                 }
             }
         }
@@ -135,12 +140,10 @@ public class GameGrid extends JPanel{
         boolean win = true;
         for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
             for(int y = 0; y < this.largeur; y++){ /* largeur */ 
-                if(!this.tab[x][y].isBomb && this.tab[x][y].state != 0){
-                    win = false;
-                    break;
-                } 
-                if(this.tab[x][y].isBomb && this.tab[x][y].state != 1){
-                    win = false;
+                if(!this.tab[x][y].revealed & !this.tab[x][y].isBomb) win = false;
+                if(!this.tab[x][y].isBomb && this.tab[x][y].state != 0) win = false;
+                if(this.tab[x][y].isBomb && this.tab[x][y].state != 1) win = false;
+                if(!win){
                     break;
                 }
             }

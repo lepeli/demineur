@@ -33,6 +33,39 @@ public class Save {
      * @return la sauvegarde a bien été chargée ou non
      */
     public boolean loadSave(){
+        int hauteur;
+        int largeur;
+        int bombes;
+
+        try{
+            this.fluxEntree = new FileInputStream(this.fichierSauv);
+        } catch (FileNotFoundException e){
+            System.err.println("Le fichier sauv.dat n'a pas été trouvé !");
+            return false;
+        }
+        try{
+            hauteur = this.fluxEntree.read();
+            largeur = this.fluxEntree.read();
+            bombes = this.fluxEntree.read();
+            Game game = new Game(largeur, hauteur, bombes);
+            GameGrid grille = game.grille;
+
+            for(int x = 0; x < hauteur; x++){
+                for(int y = 0; y < hauteur; y++){
+                    if(this.fluxEntree.read() == 1){
+                        grille.tab[x][y].setBomb();
+                    }
+                    if(this.fluxEntree.read() == 1){
+                        grille.tab[x][y].reveal();
+                    }
+                    grille.tab[x][y].setState(this.fluxEntree.read());
+                    grille.tab[x][y].setNeighboors(this.fluxEntree.read());
+                }
+            }
+
+        } catch (IOException e){
+            System.err.println("Le fichier sauv.dat n'a pas pu être lu !");
+        }
         return true;
     }
 
@@ -40,7 +73,41 @@ public class Save {
      * Méthode pour lancer la sauvegarde d'une partie
      * @return la sauvegarde a bien été effectuée ou non
      */
-    public boolean saveGame(){
+    public boolean saveGame(GameGrid grille){
+        try{
+            this.fluxSortie = new FileOutputStream(fichierSauv);
+        } catch (FileNotFoundException e){
+            System.err.println("Le fichier sauv.dat n'a pas été trouvé ! ");
+            return false;
+        }
+
+        try{
+            this.fluxSortie.write(grille.hauteur);
+            this.fluxSortie.write(grille.largeur);
+            this.fluxSortie.write(grille.nbBombes);
+
+            for(int x = 0; x <  grille.hauteur; x++){
+                for(int y = 0; y < grille.largeur; y++){
+                    if(grille.tab[x][y].isBomb){
+                        this.fluxSortie.write(1);
+                    } else {
+                        this.fluxSortie.write(0);
+                    }
+                    if(grille.tab[x][y].isRevealed()){
+                        this.fluxSortie.write(1);
+                    } else{
+                        this.fluxSortie.write(0);
+                    }
+                    this.fluxSortie.write(grille.tab[x][y].state);
+                    this.fluxSortie.write(grille.tab[x][y].nbBombesAlentours);
+                }
+
+            }
+        } catch(IOException e){
+            System.err.println("Impossible d'écrire dans le fichier sauv.dat");
+            return false;
+        }
+
         return true;
     }
 

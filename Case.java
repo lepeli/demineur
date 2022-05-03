@@ -21,7 +21,7 @@ public class Case extends JButton{
      *  - 2: doute (?)
      */
     protected int state = 0;
-    
+
     /**
      * Nombres de bombes aux alentours (utilisé pour les cases qui affichent le nbr de bombes alentours)
      */
@@ -49,7 +49,20 @@ public class Case extends JButton{
     public void setBomb(){
         this.isBomb = true;
     }
-
+    /**
+     * Permet de changer le state de la case
+     * @param state l'entier correspondant au state
+     */
+    public void setState(int state){
+        this.state = state;
+    }
+    /**
+     * Permet de changer le nombres de bombes voisinnes
+     * @param neighboors nombres de bombes voisinnes
+     */
+    public void setNeighboors(int neighboors){
+        this.nbBombesAlentours = neighboors;
+    }
     /**
      * Permet à la classe Grille de gérer le compte des bombes alentours d'une case lors de la création
      * Permet d'éviter de faire des calculs supplémentaires lorsque l'on clique sur une case
@@ -57,8 +70,8 @@ public class Case extends JButton{
      */
     public void incrementerNbBombesAlentours(){
         this.nbBombesAlentours += 1;
-        this.repaint();
     }
+
     /**
      * Méthode utilisée pour changer le state de la case
      * Appellée par l'action listener des cases 
@@ -102,8 +115,16 @@ public class Case extends JButton{
     public void reveal(){
         this.revealed = true;
         this.repaint();
+        this.gridController.checkWin();
     }
 
+    /**
+     * Méthode pour savoir si la case a été révelée ou non utilisée dans le GameGrid
+     * @see GameGrid
+     */
+    public boolean isRevealed(){
+        return this.revealed;
+    }
     /**
      * Création graphique de la case
      * @param pinceau utilisé pour créer un autre pinceau

@@ -11,6 +11,8 @@ public class Game extends JFrame{
     protected int largeur;
     protected int nbBombes;
 
+    public GameGrid grille;
+
     /**
      * Initialisation de la classe Game
      */
@@ -29,10 +31,24 @@ public class Game extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /* Initialisation de la grille */
-        GameGrid grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
+        this.grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
+        this.add(this.grille, BorderLayout.CENTER);
 
-        this.add(grille, BorderLayout.CENTER);
+        JButton boutonSave = new JButton("Sauvegarder");
+        this.add(boutonSave, BorderLayout.NORTH);
         this.setVisible(true);
+    }
+
+    /**
+     * Force la grille à se générer
+     * @see MenuListener
+     */
+    public void generateGrid(){
+        this.grille.generateGrid();
+        Save sauv = new Save();
+
+        sauv.saveGame(grille);
+
     }
 
 }

@@ -42,13 +42,16 @@ public class MenuListener implements ActionListener{
             this.parent.dispose();
             new Options();
         } else if(buttonName.equals("Charger une partie")){
-            // On ne fait rien pour l'instant car on n'a pas implémenté la sauvegarde de la partie
+            Save sauv = new Save();
+            this.parent.dispose();
+            sauv.loadSave();
         } else if(buttonName.equals("Quitter")){
             this.parent.dispose();
         } else if(buttonName.equals("Confirmer")){
             if(this.oF.verifyFields()){
                 this.oF.dispose();
-                new Game(this.oF.l, this.oF.h, this.oF.b);
+                Game game = new Game(this.oF.l, this.oF.h, this.oF.b);
+                game.generateGrid();
             }
         }
 
