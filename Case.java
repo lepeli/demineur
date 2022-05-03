@@ -48,7 +48,6 @@ public class Case extends JButton{
      */
     public void setBomb(){
         this.isBomb = true;
-        this.repaint(); /* On force le composant à se redessiner*/
     }
 
     /**
@@ -78,14 +77,13 @@ public class Case extends JButton{
     }
 
     /**
-     * Utilisé par la gestion des actions sur les cases, permet de révéler la case
+     * Méthode utilisée par la gestion des actions sur les cases, permet de révéler la case
      * @see CaseListener
      */
     public void leftClick(){
         if(this.state == 0 && !this.revealed){
-            this.revealed = true;
+            this.reveal();
             if(this.isBomb){
-                /* Implémenter la logique pour les bombes */
                 this.gridController.gameLost();
             } else {
                 if(0 == nbBombesAlentours){
@@ -93,7 +91,6 @@ public class Case extends JButton{
                 }
             }
         }
-        this.repaint();
 
     }
 
