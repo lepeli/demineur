@@ -135,13 +135,16 @@ public class GameGrid extends JPanel{
         boolean win = true;
         for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
             for(int y = 0; y < this.largeur; y++){ /* largeur */ 
-                if(!this.tab[x][y].isBomb && this.tab[x][y].state != 0) win = false;
-                if(this.tab[x][y].isBomb && this.tab[x][y].state != 1) win = false;
-
-                if(!win){
-                    System.out.println("Not winning case at X:" + x + " Y:" + y);
+                if(!this.tab[x][y].isBomb && this.tab[x][y].state != 0){
+                    win = false;
+                    break;
+                } 
+                if(this.tab[x][y].isBomb && this.tab[x][y].state != 1){
+                    win = false;
+                    break;
                 }
             }
+            if(!win) break;
         }
         if(win){
             new EndScreen("Vous avez gagné !!!", this.parent);
