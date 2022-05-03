@@ -116,6 +116,7 @@ public class Case extends JButton{
         Graphics secondPinceau = pinceau.create();
         secondPinceau.setColor(Color.BLUE);
         secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+        secondPinceau.setFont(new Font("Arial", Font.BOLD, 16));
         if(this.revealed){
             if(!this.isBomb){
                 if(this.nbBombesAlentours > 0){
@@ -136,7 +137,7 @@ public class Case extends JButton{
             }
         } else if(this.state == 1){
             secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("F", this.getSize().width / 2, this.getSize().width / 2);
+            secondPinceau.drawString("★", this.getSize().width / 2, this.getSize().width / 2);
         } else if(this.state == 2){
             secondPinceau.setColor(Color.WHITE);
             secondPinceau.drawString("?", this.getSize().width / 2, this.getSize().width / 2);
