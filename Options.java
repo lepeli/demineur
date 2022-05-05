@@ -25,7 +25,7 @@ public class Options extends JFrame {
      * Initialisation de la classe Options
      */
     public Options(){
-        this.setSize(300,500);
+        this.setSize(600,500);
         this.setTitle("Démineur - Options");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
