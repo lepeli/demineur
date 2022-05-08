@@ -34,7 +34,8 @@ public class Game extends JFrame{
         this.grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
         this.add(this.grille, BorderLayout.CENTER);
 
-        JButton boutonSave = new JButton("Sauvegarder");
+        JButton boutonSave = new JButton("Sauvegarder et quitter");
+        boutonSave.addActionListener(new MenuListener(this));
         this.add(boutonSave, BorderLayout.NORTH);
         this.setVisible(true);
     }
@@ -45,10 +46,16 @@ public class Game extends JFrame{
      */
     public void generateGrid(){
         this.grille.generateGrid();
-        Save sauv = new Save();
 
-        sauv.saveGame(grille);
+    }
 
+    /**
+     * Lancement de la sauvegarde depuis le bouton sauvegarder
+     * @see MenuListener
+     */
+    public void saveGame(){
+        Save save = new Save();
+        save.saveGame(this.grille);
     }
 
 }

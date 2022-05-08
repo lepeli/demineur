@@ -8,7 +8,13 @@ import javax.swing.*;
  * @version 1.0
  */
 public class Case extends JButton{
+    /**
+     * Position x de la case
+     */
     protected int posx;
+    /**
+     * Position y de la casze
+     */
     protected int posy;
     protected boolean isBomb = false; /* Permet de savoir si la case est une bombe ou pas */
     protected boolean revealed = false;

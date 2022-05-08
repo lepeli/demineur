@@ -10,7 +10,15 @@ import javax.swing.*;
 public class MenuListener implements ActionListener{
     private JFrame parent;
     private Options oF;
+    private Game game;
 
+    /**
+     * Initialisation de la classe MenuListener pour pouvoir sauvegarder et quitter une partie en cours
+     * @param g
+     */
+    public MenuListener(Game g){
+        this.game = g;
+    }
     /**
      * Initialisation de la classe MenuListener pour les options
      * @param p la fenêtre qui fait appel au MenuListener
@@ -53,6 +61,9 @@ public class MenuListener implements ActionListener{
                 Game game = new Game(this.oF.l, this.oF.h, this.oF.b);
                 game.generateGrid();
             }
+        } else if(buttonName.equals("Sauvegarder et quitter")){
+            this.game.dispose();
+            this.game.saveGame();
         }
 
     }
