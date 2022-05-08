@@ -109,3 +109,5 @@ Je m'étais lancé un défi pour voir en combien de temps je pouvais faire ce pr
 # Idées d'améliorations
 
 Une amélioration possible serait de découper les différentes parties dans plusieurs sous-répertoires pour permettre une meilleure lisibilité.
+
+Refaire la partie gestion de la sauvegarde pour essayer le plus possible de faire appel à des fonctions pour pouvoir mieux refactoriser le code.
