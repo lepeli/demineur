@@ -15,6 +15,7 @@ public class MenuListener implements ActionListener{
     /**
      * Initialisation de la classe MenuListener pour pouvoir sauvegarder et quitter une partie en cours
      * @param g
+     * @see Game
      */
     public MenuListener(Game g){
         this.game = g;
@@ -43,6 +44,8 @@ public class MenuListener implements ActionListener{
      * Il est possible de savoir sur quel bouton a été effectuée une action.
      * @todo coder les actions pour les boutons du menu
      * @see Menu
+     * @see Options
+     * @see Game
      */
     public void actionPerformed(ActionEvent event){
         String buttonName = event.getActionCommand();

@@ -62,7 +62,7 @@ public class Save {
                     grille.tab[x][y].setNeighboors(this.fluxEntree.read());
                 }
             }
-
+            this.fluxEntree.close();
         } catch (IOException e){
             System.err.println("Le fichier sauv.dat n'a pas pu être lu !");
         }
@@ -101,7 +101,7 @@ public class Save {
                     this.fluxSortie.write(grille.tab[x][y].state);
                     this.fluxSortie.write(grille.tab[x][y].nbBombesAlentours);
                 }
-
+                this.fluxSortie.close();
             }
         } catch(IOException e){
             System.err.println("Impossible d'écrire dans le fichier sauv.dat");
