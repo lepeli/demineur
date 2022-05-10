@@ -101,8 +101,8 @@ public class Save {
                     this.fluxSortie.write(grille.tab[x][y].state);
                     this.fluxSortie.write(grille.tab[x][y].nbBombesAlentours);
                 }
-                this.fluxSortie.close();
             }
+            this.fluxSortie.close();
         } catch(IOException e){
             System.err.println("Impossible d'écrire dans le fichier sauv.dat");
             return false;
