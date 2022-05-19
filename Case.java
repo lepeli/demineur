@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.tools.Tool;
 
 /**
  * Case
@@ -7,7 +8,7 @@ import javax.swing.*;
  * @author Yvan
  * @version 1.0
  */
-public class Case extends JButton{
+public class Case extends JComponent{
     /**
      * Position x de la case
      */
@@ -19,6 +20,8 @@ public class Case extends JButton{
     protected boolean isBomb = false; /* Permet de savoir si la case est une bombe ou pas */
     protected boolean revealed = false;
     protected GameGrid gridController;
+
+    protected Image image;
 
     /**
      * state est utilisé pour savoir à quel état la case est:
@@ -41,6 +44,8 @@ public class Case extends JButton{
         this.posx = x;
         this.posy = y;
         this.gridController = g;
+
+        this.image = Toolkit.getDefaultToolkit().getImage("icones/start.png");
 
         this.setPreferredSize(new Dimension(50,50));
         this.setMaximumSize(new Dimension(50, 50));
@@ -138,33 +143,28 @@ public class Case extends JButton{
     @Override
     protected void paintComponent(Graphics pinceau){
         Graphics secondPinceau = pinceau.create();
-        secondPinceau.setColor(Color.BLUE);
-        secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-        secondPinceau.setFont(new Font("Arial", Font.BOLD, 16));
+        // secondPinceau.setColor(Color.BLUE);
+
         if(this.revealed){
-            if(!this.isBomb){
-                if(this.nbBombesAlentours > 0){
-                    secondPinceau.setColor(Color.GREEN);
-                    secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-                    secondPinceau.setColor(Color.WHITE);
-                    secondPinceau.drawString("" + this.nbBombesAlentours, this.getSize().width / 2, this.getSize().width / 2);
-                } else {
-                    secondPinceau.setColor(Color.GRAY);
-                    secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-                }
-            }
+
             if(this.isBomb){
-                secondPinceau.setColor(Color.RED);
-                secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
-                secondPinceau.setColor(Color.WHITE);
-                secondPinceau.drawString("X", this.getSize().width / 2, this.getSize().width / 2);
+                this.image = Toolkit.getDefaultToolkit().getImage("icones/bombes.png");
+            } else if (this.nbBombesAlentours > 0) {
+                this.image = Toolkit.getDefaultToolkit().getImage("icones/"+this.nbBombesAlentours+".png");
+            } else {
+                this.image = Toolkit.getDefaultToolkit().getImage("icones/vide.png");
             }
-        } else if(this.state == 1){
-            secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("★", this.getSize().width / 2, this.getSize().width / 2);
-        } else if(this.state == 2){
-            secondPinceau.setColor(Color.WHITE);
-            secondPinceau.drawString("?", this.getSize().width / 2, this.getSize().width / 2);
+
+        } else if (this.state == 1){
+            this.image = Toolkit.getDefaultToolkit().getImage("icones/flag.png");
+        } else if (this.state == 2){
+            this.image = Toolkit.getDefaultToolkit().getImage("icones/doute.png");
+        } else {
+            this.image = Toolkit.getDefaultToolkit().getImage("icones/start.png");
         }
+
+        secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
+        secondPinceau.drawImage(this.image, 0, 0, this);
+
     }
 }
