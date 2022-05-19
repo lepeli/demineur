@@ -37,8 +37,12 @@ Save.class: Save.java
 
 clean:
 	rm *.class
+	rm -rf doc/
 
 run: Demineur
 	java Demineur
 
-.PHONY: clean run
+doc:
+	javadoc -d doc/ *.java
+
+.PHONY: clean run doc
