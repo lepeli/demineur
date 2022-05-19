@@ -51,7 +51,7 @@ public class Save {
             GameGrid grille = game.grille;
 
             for(int x = 0; x < hauteur; x++){
-                for(int y = 0; y < hauteur; y++){
+                for(int y = 0; y < largeur; y++){
                     if(this.fluxEntree.read() == 1){
                         grille.tab[x][y].setBomb();
                     }
