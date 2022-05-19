@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.tools.Tool;
 
 /**
  * Case
@@ -38,6 +37,9 @@ public class Case extends JComponent{
 
     /**
      * Initialisation de la classe Case
+     * @param x cordonnées x de la case 
+     * @param y cordonnées y de la case
+     * @param g grille pour pouvoir faire des appels plus tard à la grille
      */
     public Case(int x, int y, GameGrid g){
         super();
@@ -132,6 +134,7 @@ public class Case extends JComponent{
     /**
      * Méthode pour savoir si la case a été révelée ou non utilisée dans le GameGrid
      * @see GameGrid
+     * @return true si révélé, sinon false
      */
     public boolean isRevealed(){
         return this.revealed;

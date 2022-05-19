@@ -88,6 +88,7 @@ public class Options extends JFrame {
     /**
      * Permet de vérifier les champs s'ils sont correctes ou non.
      * Si non correcte affichera une erreur
+     * @return true si les champs sont correctes sinon false
      */
     public boolean verifyFields(){
         boolean valid = true;

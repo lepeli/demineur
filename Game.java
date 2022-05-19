@@ -14,7 +14,10 @@ public class Game extends JFrame{
     public GameGrid grille;
 
     /**
-     * Initialisation de la classe Game
+     * Initialisation de la partie
+     * @param l largeur de la grille
+     * @param h hauteur de la grille 
+     * @param b nombres de bombes sur la grille
      */
     public Game(int l, int h, int b){
         /* 

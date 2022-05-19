@@ -3,7 +3,7 @@ import java.awt.*;
 
 /**
  * Classe <code>GameGrid</code>
- * @authour Yvan
+ * @author Yvan
  * @version 1.0
  */
 public class GameGrid extends JPanel{

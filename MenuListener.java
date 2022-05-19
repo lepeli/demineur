@@ -14,7 +14,7 @@ public class MenuListener implements ActionListener{
 
     /**
      * Initialisation de la classe MenuListener pour pouvoir sauvegarder et quitter une partie en cours
-     * @param g
+     * @param g la fenêtre qui gère l'affichage du jeu
      * @see Game
      */
     public MenuListener(Game g){
@@ -42,7 +42,6 @@ public class MenuListener implements ActionListener{
     /**
      * Méthode appellée lors d'une action effectuée sur le menu. 
      * Il est possible de savoir sur quel bouton a été effectuée une action.
-     * @todo coder les actions pour les boutons du menu
      * @see Menu
      * @see Options
      * @see Game

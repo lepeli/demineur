@@ -21,6 +21,7 @@ public class CaseListener implements MouseListener{
 
     /**
      * Clic détecté sur une des cases
+     * @param evenement correspond à l'évenement
      */
     public void mouseClicked(MouseEvent evenement){
 
