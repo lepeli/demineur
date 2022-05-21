@@ -41,7 +41,11 @@ clean:
 run: Demineur
 	java Demineur
 
+debug: Demineur
+
+	java Demineur 2> debug.txt
+
 doc:
 	javadoc -d doc/ *.java
 
-.PHONY: clean run doc
+.PHONY: clean run doc debug
