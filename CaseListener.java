@@ -27,7 +27,7 @@ public class CaseListener implements MouseListener{
 
         if(evenement.getButton() == MouseEvent.BUTTON1){
             /* Il y a eu un clic gauche */
-            this.c.leftClick();
+            this.c.leftClick(true);
         }
         else if(evenement.getButton() == MouseEvent.BUTTON3){
             /* Il y a eu un clic droit */

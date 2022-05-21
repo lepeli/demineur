@@ -121,4 +121,13 @@ public class Save {
         return fichierSauv.exists();
     }
 
+    /**
+     * Méthode pour supprimer la sauvegarde après une victoire
+     */
+    public void delete(){
+        if(this.isAvailable()){
+            this.fichierSauv.delete();
+        }
+    }
+
 }

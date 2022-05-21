@@ -102,19 +102,39 @@ public class GameGrid extends JPanel{
     }
 
     /**
-     * Afficher les autres cases vides aux alentours d'une case vide
+     * Afficher les autres cases aux alentours d'une case
      * @param x coordonées x de la case
      * @param y cordonnées y de la case 
      * @see Case
      */
-    public void revealBlankNeighboor(int x, int y){
+    public void revealNonBombsNeighboors(int x, int y){
         /* Insérer les trucs à faire lol */
         for (int _x = - 1; _x <= 1 ; _x++){
             for(int _y = - 1; _y  <= 1; _y++){
                 /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
                 if(x + _x >= 0 && y + _y >= 0 && x + _x < this.hauteur && y + _y < this.largeur){
                     if(!this.tab[x + _x ][y + _y].isBomb && !this.tab[x + _x ][y + _y].revealed){
-                        this.tab[x + _x ][y + _y].leftClick();
+                        this.tab[x + _x ][y + _y].leftClick(false);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Afficher les autres cases aux alentours d'une case
+     * @param x coordonées x de la case
+     * @param y cordonnées y de la case 
+     * @see Case
+     */
+    public void revealNeighboors(int x, int y){
+        /* Insérer les trucs à faire lol */
+        for (int _x = - 1; _x <= 1 ; _x++){
+            for(int _y = - 1; _y  <= 1; _y++){
+                /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
+                if(x + _x >= 0 && y + _y >= 0 && x + _x < this.hauteur && y + _y < this.largeur){
+                    if(!this.tab[x + _x ][y + _y].revealed){
+                        this.tab[x + _x ][y + _y].leftClick(false);
                     }
                 }
             }

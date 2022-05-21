@@ -103,16 +103,18 @@ public class Case extends JComponent{
      * Méthode utilisée par la gestion des actions sur les cases, permet de révéler la case
      * @see CaseListener
      */
-    public void leftClick(){
+    public void leftClick(Boolean human){
         if(this.state == 0 && !this.revealed){
             this.reveal();
             if(this.isBomb){
                 this.gridController.gameLost();
             } else {
                 if(0 == nbBombesAlentours){
-                    this.gridController.revealBlankNeighboor(this.posx, this.posy);
+                    this.gridController.revealNonBombsNeighboors(this.posx, this.posy);
                 }
             }
+        } else if (human){
+            this.gridController.revealNeighboors(this.posx, this.posy);
         }
 
     }
@@ -163,6 +165,7 @@ public class Case extends JComponent{
             this.image = Toolkit.getDefaultToolkit().getImage("icones/start.png");
         }
 
+        secondPinceau.setColor(Color.DARK_GRAY);
         secondPinceau.fillRect(0, 0, this.getSize().width, this.getSize().width);
         secondPinceau.drawImage(this.image, 0, 0, this);
 

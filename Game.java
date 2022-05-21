@@ -26,7 +26,6 @@ public class Game extends JFrame{
         this.largeur  = l;
         this.hauteur = h;
         this.nbBombes = b;
-
         /* Paramètres de la fenêtre */
         this.setSize(1000,1000);
         // this.setResizable(false);
@@ -41,15 +40,26 @@ public class Game extends JFrame{
         gmPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gmPanel.add(this.grille, gbc);
+        gmPanel.setBackground(Color.DARK_GRAY);
         /* On force une taille pour la grille, afin qu'elle s'affiche correctement */
         gmPanel.setSize(l*30,h*30);
-
         this.add(gmPanel, BorderLayout.CENTER);
 
+        /* Top bar */
+        JPanel topbar = new JPanel();
+        topbar.setLayout(new GridLayout(1,2));
         JButton boutonSave = new JButton("Sauvegarder et quitter");
         boutonSave.addActionListener(new MenuListener(this));
-        this.add(boutonSave, BorderLayout.NORTH);
+
+        topbar.add(boutonSave);
+
+        /* Scoreboard */
+        JLabel prout = new JLabel("prout");
+        topbar.add(prout);
+
+        this.add(topbar, BorderLayout.NORTH);
         this.setVisible(true);
+
     }
 
     /**
