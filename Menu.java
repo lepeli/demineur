@@ -43,7 +43,6 @@ public class Menu extends JFrame{
             charger.setForeground(Color.RED);
             charger.setBackground(Color.GRAY);
         }
-
         this.add(btnCharger);
 
         JPanel quitterBtn = new JPanel();

@@ -1,6 +1,6 @@
 # Rapport SAÉ: DÉMINEUR
 
-<img src="images/Demineur.png" title="" alt="Logo démineur" width="457">
+<img title="" src="images/bb623e4912a11502258ebd34d3f358ab1b231991.png" alt="Logo démineur" width="457">
 
 # Sommaire du rapport
 
@@ -44,7 +44,13 @@ Un petit message d'erreur peut ~~l'insulter~~ le prévenir s'il a fait une erreu
 
 ## En partie
 
-Le joueur peut réveler une case en faisant un clic droit. Il peut aussi choisir une case où il va pouvoir placer un drapeaux là où il pense qu'il y a une bombe. Il peut aussi marquer une case avec un `🧐` s'il a un doute pendant la partie.
+# Les cases
+
+Les cases sont des images de `30px` x `30px` désignées avec Affinity Designer. Les icones proviennet des émojis sous Windows 11.
+
+Chaque icone a une signification différente.
+
+<img src="images/053dc439231708df518f6026c23b3e5bcf9869bb.png" title="" alt="" width="444">
 
 <img title="" src="images/2022-05-21-21-40-02-image.png" alt="" width="439">
 
@@ -57,6 +63,12 @@ En cas de victoire un magnifique écran vient proposer au joueur de relancer une
 Le joueur peut tout de même contempler la grille en déplaçant le message.
 
 <img src="images/2022-05-21-22-01-00-image.png" title="" alt="" width="444">
+
+En cas de défaite, l'utilisateur peut voir les drapeaux qu'il avait bien placé mais aussi les drapeaux mal placés et les bombes restantes.
+
+![](images/2022-05-21-22-54-01-image.png)
+
+
 
 # Structure du programme
 
@@ -119,7 +131,7 @@ La case est une bombe, elle n'a pas été révélée mais le joueur a émis un d
 
 # Algorithme qui permet de révéler plusieurs cases
 
-Lorsqu'une case ne contient pas de numéro et n'est pas une bombe, vient être cliquée par le joueur, le jeu révèle toutes les cases vides alentours ainsi que les cases numérotées. 
+Lorsqu'une case ne contient pas de numéro et n'est pas une bombe, vient être cliquée par l'utilisateur, on fait appel à la fonction `revealNonBombNeighboors` qui vient simuler un clic droit pour chaque case qui n'est pas une bombe. En cas de clic 
 
 # Conclusion personnelle
 
