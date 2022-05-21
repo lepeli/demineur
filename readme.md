@@ -1,5 +1,5 @@
 # Rapport SAÉ: DÉMINEUR
-
+![Logo démineur](images/Demineur.png)
 # Membres
 
 - Yvan FOUCHER (Groupe 5)

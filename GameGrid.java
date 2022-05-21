@@ -102,7 +102,7 @@ public class GameGrid extends JPanel{
     }
 
     /**
-     * Afficher les autres cases aux alentours d'une case
+     * Afficher les autres cases aux alentours d'une case (en l'occurence des cases qui ne sont pas des bombes)
      * @param x coordonées x de la case
      * @param y cordonnées y de la case 
      * @see Case

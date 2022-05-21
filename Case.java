@@ -121,6 +121,7 @@ public class Case extends JComponent{
 
     /**
      * Révéler la case.
+
      * Méthode utilisée par la classe Grille
      * @see GameGrid
      */
@@ -149,10 +150,15 @@ public class Case extends JComponent{
 
         if(this.revealed){
 
-            if(this.isBomb){
+            if(this.isBomb && this.state == 0){
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/bombes.png");
-            } else if (this.nbBombesAlentours > 0) {
+            } else if (this.nbBombesAlentours > 0 && !this.isBomb && this.state == 0) {
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/"+this.nbBombesAlentours+".png");
+            }
+            else if (this.state == 1 && !isBomb){ 
+                this.image = Toolkit.getDefaultToolkit().getImage("icones/missplaced1.png");
+            } else if (this.state == 1 && isBomb){
+                this.image = Toolkit.getDefaultToolkit().getImage("icones/good_flag.png");
             } else {
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/vide.png");
             }
