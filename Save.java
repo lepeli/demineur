@@ -112,4 +112,13 @@ public class Save {
         return true;
     }
 
+    /**
+     * Méthode pour savoir si le fichier de sauvegarde existe ou non.
+     * @see Menu utilisé par la classe Menu
+     * @return true si le fichier existe, sinon false
+     */
+    public boolean isAvailable(){
+        return fichierSauv.exists();
+    }
+
 }

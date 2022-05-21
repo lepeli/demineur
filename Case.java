@@ -49,9 +49,6 @@ public class Case extends JComponent{
 
         this.image = Toolkit.getDefaultToolkit().getImage("icones/start.png");
 
-        this.setPreferredSize(new Dimension(50,50));
-        this.setMaximumSize(new Dimension(50, 50));
-        this.setSize(50,50);
         this.addMouseListener(new CaseListener(this));
     }
 

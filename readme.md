@@ -26,7 +26,7 @@ Un petit message d'erreur peut ~~l'insulter~~ le prévenir s'il a fait une erreu
 
 ## En partie
 
-Le joueur peut réveler une case en faisant un clic droit. Il peut aussi choisir une case où il va pouvoir placer un drapeaux là où il pense qu'il y a une bombe. Il peut aussi marquer une case avec un `?` s'il a un doute pendant la partie.
+Le joueur peut réveler une case en faisant un clic droit. Il peut aussi choisir une case où il va pouvoir placer un drapeaux là où il pense qu'il y a une bombe. Il peut aussi marquer une case avec un `🧐` s'il a un doute pendant la partie.
 
 Le joueur peut sauvegarder et quitter la partie en plein milieu s'il le désire. La partie pourra être rechargée au prochain lancement du jeu.
 
@@ -86,7 +86,7 @@ Ensuite on vient parcourir le tableau avec une boucle en enregistrant dans le fi
 
 Ensuite on vient stocké le nombre de bombes voisines que la case possède. 
 
-## Exemple de valeurs décimales
+## Exemple de valeurs décimales pour une case
 
 ```
 1

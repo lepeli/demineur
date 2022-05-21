@@ -5,6 +5,10 @@
  */
 public class Demineur {
 
+    /**
+     * Méthode pour lancer le jeu
+     * @param args n'est pas utilisé dans le programme
+     */
     public static void main(String[] args) {
        new Menu(); /* On appelle le menu ici */
     }

@@ -28,14 +28,23 @@ public class Game extends JFrame{
         this.nbBombes = b;
 
         /* Paramètres de la fenêtre */
-        this.setSize(l*30+30,h*30+30);
+        this.setSize(1000,1000);
         // this.setResizable(false);
         this.setTitle("Démineur - Partie en cours");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         /* Initialisation de la grille */
         this.grille = new GameGrid(this.hauteur, this.largeur, this.nbBombes, this);
-        this.add(this.grille, BorderLayout.CENTER);
+        
+        /* Code qui permet de centrer la grille en vertical */
+        JPanel gmPanel = new JPanel();
+        gmPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gmPanel.add(this.grille, gbc);
+        /* On force une taille pour la grille, afin qu'elle s'affiche correctement */
+        gmPanel.setSize(l*30,h*30);
+
+        this.add(gmPanel, BorderLayout.CENTER);
 
         JButton boutonSave = new JButton("Sauvegarder et quitter");
         boutonSave.addActionListener(new MenuListener(this));

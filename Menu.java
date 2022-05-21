@@ -36,7 +36,14 @@ public class Menu extends JFrame{
         JPanel btnCharger = new JPanel();
         JButton charger = new JButton("Charger une partie");
         btnCharger.add(charger);
-        charger.addActionListener(new MenuListener(this));
+        Save sauv = new Save();
+        if(sauv.isAvailable()){
+            charger.addActionListener(new MenuListener(this));
+        } else {
+            charger.setForeground(Color.RED);
+            charger.setBackground(Color.GRAY);
+        }
+
         this.add(btnCharger);
 
         JPanel quitterBtn = new JPanel();

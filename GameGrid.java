@@ -47,7 +47,10 @@ public class GameGrid extends JPanel{
         for(int x=0; x < this.hauteur; x++){ /* hauteur */
             for(int y = 0; y < this.largeur; y++){ /* largeur */
                 Case caseToAdd = new Case(x,y, this);
-                this.tab[x][y] = caseToAdd; 
+                this.tab[x][y] = caseToAdd;
+                /* On force la dimension de la case */
+                caseToAdd.setSize(30, 30);
+                caseToAdd.setPreferredSize(new Dimension(30,30));
                 this.add(caseToAdd);
             }
         }
