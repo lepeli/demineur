@@ -36,8 +36,7 @@ Save.class: Save.java
 	${JC} Save.java
 
 clean:
-	rm *.class
-	rm -rf doc/
+	rm -rf *.class doc/
 
 run: Demineur
 	java Demineur
