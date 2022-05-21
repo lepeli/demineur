@@ -1,12 +1,30 @@
 # Rapport SAÉ: DÉMINEUR
-![Logo démineur](images/Demineur.png)
+
+<img src="images/Demineur.png" title="" alt="Logo démineur" width="457">
+
+# Sommaire du rapport
+
+- Membres
+
+- Introduction du sujet
+
+- Description des fonctionnalités du programme
+
+- Explication du mécanisme de sauvegarde
+
+- Exposition de l'algorithme qui permet de révéler plusieurs cases
+
+- Conclusion personnelle
+
+- Idées d'améliorations
+
 # Membres
 
 - Yvan FOUCHER (Groupe 5)
 
-# Résumé du projet
+# Introduction du sujet
 
-Le but du projet est de coder le célèbre jeu du démineur en Java en ajoutant la possibilité de sauvegarder sa partie. 
+Le but du projet est de coder le célèbre jeu du démineur en Java en ajoutant la possibilité de sauvegarder sa partie. L'utilisateur doit pouvoir signaler les bombes en utilisant des drapeaux (1 clic droit sur une case) ou dire quand il a un doute sur une case avec le smiley 🧐 (qui s'affiche après 2 clic droit sur une case).
 
 # Fonctionnalités du programme
 
@@ -22,11 +40,13 @@ Après avoir choisit de créer une nouvelle partie, le joueur peut choisir le no
 
 Un petit message d'erreur peut ~~l'insulter~~ le prévenir s'il a fait une erreur dans un des champs (comme par exemple: nombre de lignes, colonnes trop petit, ou bien le nombre trop élévé de bombes).
 
-![](images/2022-05-05-21-20-18-image.png)
+<img src="images/2022-05-05-21-20-18-image.png" title="" alt="" width="399">
 
 ## En partie
 
 Le joueur peut réveler une case en faisant un clic droit. Il peut aussi choisir une case où il va pouvoir placer un drapeaux là où il pense qu'il y a une bombe. Il peut aussi marquer une case avec un `🧐` s'il a un doute pendant la partie.
+
+<img title="" src="images/2022-05-21-21-40-02-image.png" alt="" width="439">
 
 Le joueur peut sauvegarder et quitter la partie en plein milieu s'il le désire. La partie pourra être rechargée au prochain lancement du jeu.
 
@@ -36,7 +56,7 @@ En cas de victoire un magnifique écran vient proposer au joueur de relancer une
 
 Le joueur peut tout de même contempler la grille en déplaçant le message.
 
-![](images/2022-05-05-23-05-24-image.png)
+<img src="images/2022-05-21-22-01-00-image.png" title="" alt="" width="444">
 
 # Structure du programme
 
@@ -108,6 +128,6 @@ Je m'étais lancé un défi pour voir en combien de temps je pouvais faire ce pr
 
 # Idées d'améliorations
 
-Une amélioration possible serait de découper les différentes parties dans plusieurs sous-répertoires pour permettre une meilleure lisibilité.
+Une amélioration possible serait de découper les différentes parties dans plusieurs sous-répertoires pour permettre une meilleure lisibilité. Cela serait possible avec les `package` mais pour l'instant ce n'est pas encore au programme (à voir si j'ai le temps de le faire un jour quand même).
 
 Refaire la partie gestion de la sauvegarde pour essayer le plus possible de faire appel à des fonctions pour pouvoir mieux refactoriser le code.
