@@ -66,7 +66,7 @@ Le joueur peut tout de même contempler la grille en déplaçant le message.
 
 En cas de défaite, l'utilisateur peut voir les drapeaux qu'il avait bien placé mais aussi les drapeaux mal placés et les bombes restantes.
 
-![](images/2022-05-21-22-54-01-image.png)
+<img src="images/2022-05-21-22-54-01-image.png" title="" alt="" width="447">
 
 
 
