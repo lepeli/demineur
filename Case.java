@@ -114,7 +114,8 @@ public class Case extends JComponent{
                 }
             }
         } else if (human){
-            this.gridController.revealNeighboors(this.posx, this.posy);
+            if(this.nbBombesAlentours == this.gridController.countFlagsNear(this.posx, this.posy))
+                this.gridController.revealNeighboors(this.posx, this.posy);
         }
 
     }

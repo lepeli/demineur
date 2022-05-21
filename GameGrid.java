@@ -142,6 +142,28 @@ public class GameGrid extends JPanel{
     }
 
     /**
+     * Compte le nombre de drapeaux à côté d'une case
+     * @param x coordonées x de la case
+     * @param y cordonnées y de la case 
+     * @see Case
+     */
+    public int countFlagsNear(int x, int y){
+        /* Insérer les trucs à faire lol */
+        int count  = 0; 
+        for (int _x = - 1; _x <= 1 ; _x++){
+            for(int _y = - 1; _y  <= 1; _y++){
+                /* On vérifie que la case calculée ne soit pas en dehors du tableau pour éviter les erreurs outofbond*/
+                if(x + _x >= 0 && y + _y >= 0 && x + _x < this.hauteur && y + _y < this.largeur){
+                    if(this.tab[x + _x ][y + _y].state != 0){
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
      * Méthode appellée lorsqu'un bombe a été révélée par un joueur
      * @see Case
      */
