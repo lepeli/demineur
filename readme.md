@@ -68,11 +68,23 @@ En cas de défaite, l'utilisateur peut voir les drapeaux qu'il avait bien placé
 
 <img src="images/2022-05-21-22-54-01-image.png" title="" alt="" width="447">
 
-
-
 # Structure du programme
 
 Le programme est reparti en plusieurs classes qui permettent d'effectuer les différentes actions tout au long d'une partie.
+
+Globalement, il est reparti comme ceci:
+
+- Demineur
+
+- Options
+
+- Jeu
+
+- Grille
+
+- Case
+
+Ceci peut être vu plus en détails grâce au diagramme de classe.
 
 ## Diagramme de classe
 
@@ -131,7 +143,7 @@ La case est une bombe, elle n'a pas été révélée mais le joueur a émis un d
 
 # Algorithme qui permet de révéler plusieurs cases
 
-Lorsqu'une case ne contient pas de numéro et n'est pas une bombe, vient être cliquée par l'utilisateur, on fait appel à la fonction `revealNonBombNeighboors` qui vient simuler un clic droit pour chaque case qui n'est pas une bombe. En cas de clic 
+Lorsqu'une case ne contient pas de numéro et n'est pas une bombe, vient être cliquée par l'utilisateur, on fait appel à la fonction `revealNonBombNeighboors` qui vient simuler un clic droit pour chaque case qui n'est pas une bombe. En cas de clic sur une case qui contient un nombre on ne fera pas appel à la fonction et la case sera quand même révélée.
 
 # Conclusion personnelle
 
@@ -140,6 +152,10 @@ Je m'étais lancé un défi pour voir en combien de temps je pouvais faire ce pr
 
 # Idées d'améliorations
 
-Une amélioration possible serait de découper les différentes parties dans plusieurs sous-répertoires pour permettre une meilleure lisibilité. Cela serait possible avec les `package` mais pour l'instant ce n'est pas encore au programme (à voir si j'ai le temps de le faire un jour quand même).
+- Une amélioration possible serait de découper les différentes parties dans plusieurs sous-répertoires pour permettre une meilleure lisibilité. Cela serait possible avec les `package` mais pour l'instant ce n'est pas encore au programme (à voir si j'ai le temps de le faire un jour quand même).
 
-Refaire la partie gestion de la sauvegarde pour essayer le plus possible de faire appel à des fonctions pour pouvoir mieux refactoriser le code.
+- Refaire la partie gestion de la sauvegarde pour essayer le plus possible de faire appel à des fonctions pour pouvoir mieux refactoriser le code.
+
+- Supprimer la sauvegarde après que la partie soit gagnée ou perdue.
+
+- Ajouter un bouton pour relancer une partie rapidement
