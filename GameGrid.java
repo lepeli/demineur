@@ -216,8 +216,8 @@ public class GameGrid extends JPanel{
     /**
      * Méthode pour mettre à jour le nombre de flags sur le plateau
      */
-    public void updateBombsCount(){
-        this.parent.updateFlagCount(this.countFlags());
+    public void updateFlagsCount(){
+        this.parent.updateFlagsCount(this.countFlags());
     }
 
 }

@@ -94,7 +94,7 @@ public class Case extends JComponent{
                 this.state = 0;
             }
             this.repaint();
-            this.gridController.updateBombsCount();
+            this.gridController.updateFlagsCount();
             this.gridController.checkWin();
         }
 

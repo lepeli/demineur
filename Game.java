@@ -85,7 +85,7 @@ public class Game extends JFrame{
      * Permet d'afficher le nombre de flag restants
      * @param count le compte de flag restants
      */
-    public void updateFlagCount(int count){
+    public void updateFlagsCount(int count){
         this.nbBombesRestantes.setText("Bombes restantes : " + (this.nbBombes - count));
     }
 
