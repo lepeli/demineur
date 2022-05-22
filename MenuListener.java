@@ -63,8 +63,10 @@ public class MenuListener implements ActionListener{
                 game.generateGrid();
             }
         } else if(buttonName.equals("Sauvegarder et quitter")){
-            this.game.dispose();
-            this.game.saveGame();
+            if(!this.game.grille.ended){
+                this.game.dispose();
+                this.game.saveGame();
+            }
         }
 
     }

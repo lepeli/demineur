@@ -18,6 +18,12 @@ public class GameGrid extends JPanel{
     protected int nbBombes;
 
     /**
+     * Status de la partie
+     * Indique si la partie est finie ou non (perte ou victoire)
+     */
+    protected boolean ended = false;
+
+    /**
      * Permet de stocker les différentes cases.
      * Tableau multidimentionnel
      */
@@ -173,6 +179,7 @@ public class GameGrid extends JPanel{
                 this.tab[x][y].reveal();
             }
         }
+        this.ended = true;
         new EndScreen("Perdu !", this.parent);
     }
 
@@ -195,6 +202,7 @@ public class GameGrid extends JPanel{
             if(!win) break;
         }
         if(win){
+            this.ended = true;
             new EndScreen("Vous avez gagné !!!", this.parent);
         }
     }
