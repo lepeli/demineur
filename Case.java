@@ -149,7 +149,7 @@ public class Case extends JComponent{
     protected void paintComponent(Graphics pinceau){
         Graphics secondPinceau = pinceau.create();
         if(this.revealed){
-            if(this.isBomb && this.state == 0){
+            if(this.isBomb && (this.state == 0 || this.state == 2)){
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/bombes.png");
             } else if (this.nbBombesAlentours > 0 && !this.isBomb && this.state == 0) {
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/"+this.nbBombesAlentours+".png");
