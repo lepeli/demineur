@@ -10,16 +10,16 @@ public class Save {
     /**
      * Fichier de sauvegarde
      */
-    File fichierSauv;
+    private File fichierSauv;
     /**
      * Flux en lecture du fichier
      */
-    FileInputStream fluxEntree;
+    private FileInputStream fluxEntree;
 
     /**
      * Flux en écriture du fichier
      */
-    FileOutputStream fluxSortie;
+    private FileOutputStream fluxSortie;
     /**
      * Initialisation de la classe Save
      */

@@ -8,7 +8,7 @@ import javax.swing.*;
  * @see Menu
  */
 public class MenuListener implements ActionListener{
-    private JFrame parent;
+    private Menu menu;
     private Options oF;
     private Game game;
 
@@ -35,8 +35,8 @@ public class MenuListener implements ActionListener{
      * @param p fenêtre parent (le menu)
      * @see Menu
      */
-    public MenuListener(JFrame p){
-        this.parent = p;
+    public MenuListener(Menu m){
+        this.menu = m;
     }
 
     /**
@@ -49,14 +49,14 @@ public class MenuListener implements ActionListener{
     public void actionPerformed(ActionEvent event){
         String buttonName = event.getActionCommand();
         if(buttonName.equals("Nouvelle partie")){
-            this.parent.dispose();
+            this.menu.dispose();
             new Options();
         } else if(buttonName.equals("Charger une partie")){
             Save sauv = new Save();
-            this.parent.dispose();
+            this.menu.dispose();
             sauv.loadSave();
         } else if(buttonName.equals("Quitter")){
-            this.parent.dispose();
+            this.menu.dispose();
         } else if(buttonName.equals("Confirmer")){
             if(this.oF.verifyFields()){
                 this.oF.dispose();
