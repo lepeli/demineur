@@ -1,5 +1,4 @@
 import java.awt.event.*;
-import javax.swing.*;
 
 /**
  * La clase <code>MenuListener</code> permet de récupérer les actions effectuées dans le menu.
