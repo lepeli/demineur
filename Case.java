@@ -94,6 +94,7 @@ public class Case extends JComponent{
                 this.state = 0;
             }
             this.repaint();
+            this.gridController.updateBombsCount();
             this.gridController.checkWin();
         }
 
@@ -147,10 +148,7 @@ public class Case extends JComponent{
     @Override
     protected void paintComponent(Graphics pinceau){
         Graphics secondPinceau = pinceau.create();
-        // secondPinceau.setColor(Color.BLUE);
-
         if(this.revealed){
-
             if(this.isBomb && this.state == 0){
                 this.image = Toolkit.getDefaultToolkit().getImage("icones/bombes.png");
             } else if (this.nbBombesAlentours > 0 && !this.isBomb && this.state == 0) {
@@ -177,4 +175,5 @@ public class Case extends JComponent{
         secondPinceau.drawImage(this.image, 0, 0, this);
 
     }
+
 }

@@ -62,6 +62,7 @@ public class Save {
                     grille.tab[x][y].setNeighboors(this.fluxEntree.read());
                 }
             }
+            grille.updateBombsCount();
             this.fluxEntree.close();
         } catch (IOException e){
             System.err.println("Le fichier sauv.dat n'a pas pu être lu !");

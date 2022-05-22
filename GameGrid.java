@@ -8,7 +8,7 @@ import java.awt.*;
  */
 public class GameGrid extends JPanel{
 
-    private JFrame parent;
+    private Game parent;
 
     /**
      * Paramètres de la partie
@@ -32,7 +32,7 @@ public class GameGrid extends JPanel{
      * @param pF fenêtre parent (jeu)
      * @see Game
      */
-    public GameGrid(int h, int l, int b, JFrame pF){
+    public GameGrid(int h, int l, int b, Game pF){
         
         /* Initialisation des variables */
         this.parent = pF;
@@ -197,6 +197,27 @@ public class GameGrid extends JPanel{
         if(win){
             new EndScreen("Vous avez gagné !!!", this.parent);
         }
+    }
+
+    /**
+     * Méthode pour connaître le nombre de flags sur le plateau
+     * @return le nombre de flags sur le plateau
+     */
+    public int countFlags(){
+        int count = 0;
+        for(int x=0; x < this.hauteur; x++){ /* hauteur */ 
+            for(int y = 0; y < this.largeur; y++){ /* largeur */ 
+                if(this.tab[x][y].state == 1) count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * Méthode pour mettre à jour le nombre de flags sur le plateau
+     */
+    public void updateBombsCount(){
+        this.parent.updateFlagCount(this.countFlags());
     }
 
 }

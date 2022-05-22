@@ -10,6 +10,7 @@ public class Game extends JFrame{
     protected int hauteur;
     protected int largeur;
     protected int nbBombes;
+    protected JLabel nbBombesRestantes;
 
     public GameGrid grille;
 
@@ -54,8 +55,8 @@ public class Game extends JFrame{
         topbar.add(boutonSave);
 
         /* Scoreboard */
-        JLabel prout = new JLabel("prout");
-        topbar.add(prout);
+        this.nbBombesRestantes = new JLabel("Bombes restantes : " + this.nbBombes);
+        topbar.add(nbBombesRestantes);
 
         this.add(topbar, BorderLayout.NORTH);
         this.setVisible(true);
@@ -78,6 +79,14 @@ public class Game extends JFrame{
     public void saveGame(){
         Save save = new Save();
         save.saveGame(this.grille);
+    }
+
+    /**
+     * Permet d'afficher le nombre de flag restants
+     * @param count le compte de flag restants
+     */
+    public void updateFlagCount(int count){
+        this.nbBombesRestantes.setText("Bombes restantes : " + (this.nbBombes - count));
     }
 
 }
