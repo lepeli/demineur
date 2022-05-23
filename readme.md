@@ -2,6 +2,10 @@
 
 <img title="" src="images/bb623e4912a11502258ebd34d3f358ab1b231991.png" alt="Logo démineur" width="457">
 
+# Rapport
+
+Lien vers le pdf: [rapport.pdf](./rapport.pdf)
+
 # Sommaire du rapport
 
 - Membres
@@ -128,7 +132,7 @@ Ensuite on vient parcourir le tableau avec une boucle en enregistrant dans le fi
 
 ### Voisins
 
-Ensuite on vient stocké le nombre de bombes voisines que la case possède. 
+Ensuite on vient stocker le nombre de bombes voisines que la case possède. 
 
 ## Exemple de valeurs décimales pour une case
 

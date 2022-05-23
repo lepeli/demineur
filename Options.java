@@ -8,12 +8,30 @@ import java.awt.*;
  * @version 1.0
 */
 public class Options extends JFrame {
+    /**
+     * Label d'erreur sur la hauteur
+     */
     private JLabel hauteurErr;
+    /**
+     * Label d'erreur sur la largeur
+     */
     private JLabel largeurErr;
+    /**
+     * Label d'erreur sur le nombre de bombes
+     */
     private JLabel bombesErr;
 
+    /**
+     * Entrée de la hauteur
+     */
     protected JTextField hauteur;
+    /**
+     * Entrée de la largeur
+     */
     protected JTextField largeur;
+    /**
+     * Entrée du nombre de bombes
+     */
     protected JTextField bombes;
 
     protected int l;

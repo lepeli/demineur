@@ -8,13 +8,25 @@ import java.awt.*;
  */
 public class GameGrid extends JPanel{
 
+    /**
+     * Parent de la classe, utilsié pour pouvoir faire des appels plus tard dans le code en cas de besoins
+     * Comme pour signaler un changement du nombre de bombes restantes
+     */
     private Game parent;
-
     /**
      * Paramètres de la partie
      */
+    /**
+     * Hauteur de la grille
+     */
     protected int hauteur;
+    /**
+     * Largeur de la grille
+     */
     protected int largeur;
+    /**
+     * Nombre de bombes sur la grille
+     */
     protected int nbBombes;
 
     /**
@@ -151,6 +163,7 @@ public class GameGrid extends JPanel{
      * Compte le nombre de drapeaux à côté d'une case
      * @param x coordonées x de la case
      * @param y cordonnées y de la case 
+     * @return le nombre de drapeaux à côté d'une case
      * @see Case
      */
     public int countFlagsNear(int x, int y){

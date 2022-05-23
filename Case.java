@@ -103,6 +103,7 @@ public class Case extends JComponent{
     /**
      * Méthode utilisée par la gestion des actions sur les cases, permet de révéler la case
      * @see CaseListener
+     * @param human si l'action est faite par un joueur ou non
      */
     public void leftClick(Boolean human){
         if(this.state == 0 && !this.revealed){

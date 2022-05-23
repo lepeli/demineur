@@ -31,7 +31,7 @@ public class MenuListener implements ActionListener{
     /**
      * Initialisation de la classe <code>MenuListener</code>
      * La classe vient récupérer dans l'initialisation la fenêtre parent qui correspond au menu pour pouvoir la fermer par la suite
-     * @param p fenêtre parent (le menu)
+     * @param m fenêtre parent (le menu)
      * @see Menu
      */
     public MenuListener(Menu m){

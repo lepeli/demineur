@@ -8,15 +8,17 @@ import javax.swing.*;
  * @version 1.0
  */
 public class EndScreen extends JFrame {
-
-    private JFrame gameF;
+    /**
+     * Fenêtre parent pour pouvoir fermer le jeu
+     */
+    private Game gameF;
 
     /**
      * Initialisation de la fenêtre de fin de partie
      * @param title titre donné à la fenêtre + texte écrit
      * @param gameFrame fenêtre du jeu
      */
-    public EndScreen(String title, JFrame gameFrame){
+    public EndScreen(String title, Game gameFrame){
         this.gameF = gameFrame;
 
         GridLayout fenetreMgr = new GridLayout(3,1);

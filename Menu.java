@@ -50,8 +50,8 @@ public class Menu extends JFrame{
         quitterBtn.add(quitter);
         quitter.addActionListener(new MenuListener(this));
         this.add(quitterBtn);
-        
-        /* Ajout des boutons sur la fenêtre */
+
+        /* On rend la fenêtre visible */
         this.setVisible(true);
     }
 

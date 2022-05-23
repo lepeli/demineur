@@ -7,11 +7,26 @@ import java.awt.*;
  * @version 1.0
  */
 public class Game extends JFrame{
+    /**
+     * Hauteur de la grille
+     */
     protected int hauteur;
+    /**
+     * Largeur de la grille
+     */
     protected int largeur;
+    /**
+     * Nombre de bombes sur la grille
+     */
     protected int nbBombes;
+    /**
+     * Label pour afficher le nombre de bombes restantes
+     */
     protected JLabel nbBombesRestantes;
 
+    /**
+     * La grille du jeu
+     */
     public GameGrid grille;
 
     /**
@@ -27,9 +42,9 @@ public class Game extends JFrame{
         this.largeur  = l;
         this.hauteur = h;
         this.nbBombes = b;
+
         /* Paramètres de la fenêtre */
         this.setSize(1000,1000);
-        // this.setResizable(false);
         this.setTitle("Démineur - Partie en cours");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
