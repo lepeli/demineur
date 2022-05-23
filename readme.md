@@ -92,6 +92,8 @@ Ceci peut être vu plus en détails grâce au diagramme de classe.
 
 ## Diagramme de classe
 
+![](images/2022-05-23-18-37-09-image.png)
+
 # Sauvegarde
 
 Le fonctionnement de la sauvegarde est plutôt simple. 
